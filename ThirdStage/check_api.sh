@@ -7,7 +7,7 @@ fi
 
 url="$1"
 
-http_code=$(curl -s -L -w "%{http_code}" --max-time 10 "$url")
+http_code=$(curl -s -L -o /dev/null -w "%{http_code}" --max-time 10 "$url")
 curl_status=$?
 
 if [[ $curl_status -eq 0 && "$http_code" == "200" ]]; then
